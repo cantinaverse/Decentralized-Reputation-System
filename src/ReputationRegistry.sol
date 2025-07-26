@@ -31,4 +31,9 @@ contract ReputationRegistry is Ownable, ReentrancyGuard {
         uint256 raterReputation; // Reputation of the person giving the rating
         uint256 weight;          // Calculated weight for this rating
     }
+
+    // State variables
+    mapping(address => ReputationData) private _reputations;
+    mapping(address => bool) public authorizedRaters;
+    address[] private _registeredUsers;
 }
