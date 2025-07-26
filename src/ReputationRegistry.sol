@@ -36,4 +36,9 @@ contract ReputationRegistry is Ownable, ReentrancyGuard {
     mapping(address => ReputationData) private _reputations;
     mapping(address => bool) public authorizedRaters;
     address[] private _registeredUsers;
+
+    // Reputation calculation parameters
+    uint256 public minRaterReputation = 300; // Minimum reputation to give weighted ratings
+    uint256 public maxWeightMultiplier = 200; // Max weight multiplier (2x)
+    bool public decayEnabled = true;
 }
