@@ -51,5 +51,5 @@ contract ReputationRegistry is Ownable, ReentrancyGuard {
         address indexed rater
     );
     event ReputationDecayed(address indexed user, uint256 oldScore, uint256 newScore);
-    
+    event AuthorizedRaterAdded(address indexed rater);
 }
