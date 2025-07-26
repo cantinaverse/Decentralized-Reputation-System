@@ -19,17 +19,17 @@ contract ReputationRegistry is Ownable, ReentrancyGuard {
 
     // Structs
     struct ReputationData {
-        uint256 score;           // Current reputation score (0-1000)
-        uint256 totalRatings;    // Total number of ratings received
-        uint256 totalScore;      // Sum of all ratings (for average calculation)
-        uint256 lastUpdateTime;  // Timestamp of last reputation update
-        uint256 lastDecayTime;   // Timestamp of last decay application
-        bool isRegistered;       // Whether user is registered in the system
+        uint256 score; // Current reputation score (0-1000)
+        uint256 totalRatings; // Total number of ratings received
+        uint256 totalScore; // Sum of all ratings (for average calculation)
+        uint256 lastUpdateTime; // Timestamp of last reputation update
+        uint256 lastDecayTime; // Timestamp of last decay application
+        bool isRegistered; // Whether user is registered in the system
     }
 
     struct RatingWeight {
         uint256 raterReputation; // Reputation of the person giving the rating
-        uint256 weight;          // Calculated weight for this rating
+        uint256 weight; // Calculated weight for this rating
     }
 
     // State variables
@@ -44,19 +44,11 @@ contract ReputationRegistry is Ownable, ReentrancyGuard {
 
     // Events
     event UserRegistered(address indexed user, uint256 initialReputation);
-    event ReputationUpdated(
-        address indexed user, 
-        uint256 oldScore, 
-        uint256 newScore, 
-        address indexed rater
-    );
+    event ReputationUpdated(address indexed user, uint256 oldScore, uint256 newScore, address indexed rater);
     event ReputationDecayed(address indexed user, uint256 oldScore, uint256 newScore);
     event AuthorizedRaterAdded(address indexed rater);
     event AuthorizedRaterRemoved(address indexed rater);
-    event ReputationParametersUpdated(
-        uint256 minRaterReputation,
-        uint256 maxWeightMultiplier
-    );
+    event ReputationParametersUpdated(uint256 minRaterReputation, uint256 maxWeightMultiplier);
 
     // Errors
     error UserNotRegistered(address user);
