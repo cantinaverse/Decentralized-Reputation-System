@@ -57,4 +57,12 @@ contract ReputationRegistry is Ownable, ReentrancyGuard {
         uint256 minRaterReputation,
         uint256 maxWeightMultiplier
     );
+
+    // Errors
+    error UserNotRegistered(address user);
+    error UserAlreadyRegistered(address user);
+    error InvalidReputationScore(uint256 score);
+    error UnauthorizedRater(address rater);
+    error InvalidParameters();
+    error SelfRatingNotAllowed();
 }
