@@ -44,3 +44,11 @@ src/
 2. **Rating Submission**: Ratings submitted via `RatingSystem.sol`
 3. **Reputation Update**: `RatingSystem.sol` calls `ReputationRegistry.sol` to update scores
 4. **Dispute Process**: Unfair ratings can be disputed through `DisputeResolution.sol`
+
+
+## Getting Started
+
+### Prerequisites
+
+- [Foundry](https://github.com/foundry-rs/foundry)
+- [Git](https://git-scm.com/)
