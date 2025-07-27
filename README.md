@@ -65,3 +65,9 @@ cd build
 ```bash
 forge install
 ```
+
+3. Install additional dependencies:
+```bash
+forge install OpenZeppelin/openzeppelin-contracts
+forge install foundry-rs/forge-std
+```
