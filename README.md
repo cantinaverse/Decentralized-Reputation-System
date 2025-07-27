@@ -37,3 +37,10 @@ src/
     ├── IUserProfile.sol
     └── IDisputeResolution.sol
 ```
+
+### Contract Interactions
+
+1. **User Registration**: Users register through `UserProfile.sol`
+2. **Rating Submission**: Ratings submitted via `RatingSystem.sol`
+3. **Reputation Update**: `RatingSystem.sol` calls `ReputationRegistry.sol` to update scores
+4. **Dispute Process**: Unfair ratings can be disputed through `DisputeResolution.sol`
