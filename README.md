@@ -15,3 +15,25 @@ This decentralized reputation system allows users to build and maintain reputati
 - **Reputation Decay**: Time-based reputation decay to keep scores current
 - **Profile Management**: User profiles with metadata and rating history
 - **Access Control**: Role-based permissions for system administration
+
+## Architecture
+
+### Smart Contracts
+
+```
+src/
+├── core/
+│   ├── ReputationRegistry.sol     # Main reputation storage and calculation
+│   ├── RatingSystem.sol           # Rating submission and validation
+│   └── UserProfile.sol            # User profile management
+├── governance/
+│   ├── AccessControl.sol          # Role-based permissions
+│   └── DisputeResolution.sol      # Rating dispute handling
+├── token/
+│   └── ReputationToken.sol        # Optional tokenized reputation
+└── interfaces/
+    ├── IReputationRegistry.sol
+    ├── IRatingSystem.sol
+    ├── IUserProfile.sol
+    └── IDisputeResolution.sol
+```
