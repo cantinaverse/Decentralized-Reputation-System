@@ -52,3 +52,11 @@ src/
 
 - [Foundry](https://github.com/foundry-rs/foundry)
 - [Git](https://git-scm.com/)
+
+### Installation
+
+1. Clone the repository:
+```bash
+git clone <repository-url>
+cd build
+```
