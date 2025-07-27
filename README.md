@@ -60,3 +60,8 @@ src/
 git clone <repository-url>
 cd build
 ```
+
+2. Install Foundry dependencies:
+```bash
+forge install
+```
