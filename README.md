@@ -149,3 +149,7 @@ The core contract managing reputation scores and calculations.
 - `updateReputation(address user, uint256 newRating, address rater)`: Update reputation (internal)
 - `calculateWeightedScore(address user)`: Calculate weighted reputation score
 - `applyDecay(address user)`: Apply time-based reputation decay
+
+**Events:**
+- `ReputationUpdated(address indexed user, uint256 newScore, uint256 timestamp)`
+- `ReputationDecayed(address indexed user, uint256 oldScore, uint256 newScore)`
