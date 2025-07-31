@@ -113,3 +113,8 @@ Run tests with gas reporting:
 ```bash
 forge test --gas-report
 ```
+
+Run specific test file:
+```bash
+forge test --match-path test/ReputationRegistry.t.sol
+```
