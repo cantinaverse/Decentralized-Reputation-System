@@ -101,3 +101,10 @@ REPUTATION_DECAY_RATE=1       # 1% per month
 ```bash
 forge build
 ```
+
+### Testing
+
+Run all tests:
+```bash
+forge test
+```
