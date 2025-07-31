@@ -132,3 +132,9 @@ Deploy to testnet:
 forge script script/Deploy.s.sol --rpc-url $SEPOLIA_RPC_URL --private-key $PRIVATE_KEY --broadcast --verify
 ```
 
+### Contract Verification
+
+```bash
+forge verify-contract <CONTRACT_ADDRESS> src/core/ReputationRegistry.sol:ReputationRegistry --etherscan-api-key $ETHERSCAN_API_KEY --chain sepolia
+```
+
