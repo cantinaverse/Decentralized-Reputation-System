@@ -93,3 +93,11 @@ RATING_SCALE_MAX=5
 RATING_COOLDOWN_PERIOD=86400  # 24 hours in seconds
 REPUTATION_DECAY_RATE=1       # 1% per month
 ```
+
+## Usage
+
+### Compilation
+
+```bash
+forge build
+```
