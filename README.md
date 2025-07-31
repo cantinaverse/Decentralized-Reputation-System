@@ -138,3 +138,8 @@ forge script script/Deploy.s.sol --rpc-url $SEPOLIA_RPC_URL --private-key $PRIVA
 forge verify-contract <CONTRACT_ADDRESS> src/core/ReputationRegistry.sol:ReputationRegistry --etherscan-api-key $ETHERSCAN_API_KEY --chain sepolia
 ```
 
+## Smart Contract Details
+
+### ReputationRegistry.sol
+
+The core contract managing reputation scores and calculations.
