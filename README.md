@@ -118,3 +118,11 @@ Run specific test file:
 ```bash
 forge test --match-path test/ReputationRegistry.t.sol
 ```
+
+### Deployment
+
+Deploy to local network:
+```bash
+anvil  # Start local node
+forge script script/Deploy.s.sol --rpc-url http://localhost:8545 --private-key $PRIVATE_KEY --broadcast
+```
