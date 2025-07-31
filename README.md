@@ -71,3 +71,25 @@ forge install
 forge install OpenZeppelin/openzeppelin-contracts
 forge install foundry-rs/forge-std
 ```
+
+### Configuration
+
+Create a `.env` file in the root directory:
+```env
+# RPC URLs
+ETHEREUM_RPC_URL=https://eth-mainnet.g.alchemy.com/v2/your-key
+GOERLI_RPC_URL=https://eth-goerli.g.alchemy.com/v2/your-key
+SEPOLIA_RPC_URL=https://eth-sepolia.g.alchemy.com/v2/your-key
+
+# Private keys (for deployment)
+PRIVATE_KEY=your-private-key
+
+# Etherscan API (for verification)
+ETHERSCAN_API_KEY=your-etherscan-api-key
+
+# System Configuration
+INITIAL_REPUTATION_SCORE=100
+RATING_SCALE_MAX=5
+RATING_COOLDOWN_PERIOD=86400  # 24 hours in seconds
+REPUTATION_DECAY_RATE=1       # 1% per month
+```
