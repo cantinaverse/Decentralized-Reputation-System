@@ -143,3 +143,9 @@ forge verify-contract <CONTRACT_ADDRESS> src/core/ReputationRegistry.sol:Reputat
 ### ReputationRegistry.sol
 
 The core contract managing reputation scores and calculations.
+
+**Key Functions:**
+- `getReputationScore(address user)`: Get current reputation score
+- `updateReputation(address user, uint256 newRating, address rater)`: Update reputation (internal)
+- `calculateWeightedScore(address user)`: Calculate weighted reputation score
+- `applyDecay(address user)`: Apply time-based reputation decay
