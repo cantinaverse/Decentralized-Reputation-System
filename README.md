@@ -126,3 +126,9 @@ Deploy to local network:
 anvil  # Start local node
 forge script script/Deploy.s.sol --rpc-url http://localhost:8545 --private-key $PRIVATE_KEY --broadcast
 ```
+
+Deploy to testnet:
+```bash
+forge script script/Deploy.s.sol --rpc-url $SEPOLIA_RPC_URL --private-key $PRIVATE_KEY --broadcast --verify
+```
+
