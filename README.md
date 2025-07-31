@@ -108,3 +108,8 @@ Run all tests:
 ```bash
 forge test
 ```
+
+Run tests with gas reporting:
+```bash
+forge test --gas-report
+```
