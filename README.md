@@ -167,3 +167,9 @@ Manages user profiles and metadata.
 ### DisputeResolution.sol
 
 Handles disputes over ratings.
+
+**Key Functions:**
+- `submitDispute(address rater, address ratee, string memory reason)`: Submit dispute
+- `voteOnDispute(uint256 disputeId, bool support)`: Vote on dispute
+- `resolveDispute(uint256 disputeId)`: Resolve dispute
+- `getDispute(uint256 disputeId)`: Get dispute details
