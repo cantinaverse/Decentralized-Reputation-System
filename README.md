@@ -157,3 +157,9 @@ The core contract managing reputation scores and calculations.
 ### UserProfile.sol
 
 Manages user profiles and metadata.
+
+**Key Functions:**
+- `registerUser(string memory username, string memory metadata)`: Register new user
+- `updateProfile(string memory metadata)`: Update user profile
+- `getUserProfile(address user)`: Get user profile information
+- `isRegistered(address user)`: Check if user is registered
