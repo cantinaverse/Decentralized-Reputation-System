@@ -153,3 +153,34 @@ The core contract managing reputation scores and calculations.
 **Events:**
 - `ReputationUpdated(address indexed user, uint256 newScore, uint256 timestamp)`
 - `ReputationDecayed(address indexed user, uint256 oldScore, uint256 newScore)`
+
+### UserProfile.sol
+
+Manages user profiles and metadata.
+
+**Key Functions:**
+- `registerUser(string memory username, string memory metadata)`: Register new user
+- `updateProfile(string memory metadata)`: Update user profile
+- `getUserProfile(address user)`: Get user profile information
+- `isRegistered(address user)`: Check if user is registered
+
+### DisputeResolution.sol
+
+Handles disputes over ratings.
+
+**Key Functions:**
+- `submitDispute(address rater, address ratee, string memory reason)`: Submit dispute
+- `voteOnDispute(uint256 disputeId, bool support)`: Vote on dispute
+- `resolveDispute(uint256 disputeId)`: Resolve dispute
+- `getDispute(uint256 disputeId)`: Get dispute details
+
+## Testing Strategy
+
+### Unit Tests
+
+Located in `test/` directory:
+- `ReputationRegistry.t.sol`: Core reputation logic tests
+- `RatingSystem.t.sol`: Rating submission and validation tests
+- `UserProfile.t.sol`: Profile management tests
+- `DisputeResolution.t.sol`: Dispute mechanism tests
+- `Integration.t.sol`: Cross-contract integration tests
