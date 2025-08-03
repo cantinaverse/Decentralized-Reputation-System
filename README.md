@@ -177,3 +177,10 @@ Handles disputes over ratings.
 ## Testing Strategy
 
 ### Unit Tests
+
+Located in `test/` directory:
+- `ReputationRegistry.t.sol`: Core reputation logic tests
+- `RatingSystem.t.sol`: Rating submission and validation tests
+- `UserProfile.t.sol`: Profile management tests
+- `DisputeResolution.t.sol`: Dispute mechanism tests
+- `Integration.t.sol`: Cross-contract integration tests
