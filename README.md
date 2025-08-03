@@ -173,3 +173,7 @@ Handles disputes over ratings.
 - `voteOnDispute(uint256 disputeId, bool support)`: Vote on dispute
 - `resolveDispute(uint256 disputeId)`: Resolve dispute
 - `getDispute(uint256 disputeId)`: Get dispute details
+
+## Testing Strategy
+
+### Unit Tests
