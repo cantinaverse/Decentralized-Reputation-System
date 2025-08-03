@@ -163,3 +163,7 @@ Manages user profiles and metadata.
 - `updateProfile(string memory metadata)`: Update user profile
 - `getUserProfile(address user)`: Get user profile information
 - `isRegistered(address user)`: Check if user is registered
+
+### DisputeResolution.sol
+
+Handles disputes over ratings.
