@@ -197,3 +197,6 @@ Located in `test/` directory:
 ```bash
 # Security tests
 forge test --match-test testSecurity
+
+# Gas optimization tests
+forge test --gas-report --match-test testGas
