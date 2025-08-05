@@ -219,3 +219,10 @@ forge test --match-path test/Integration.t.sol
 - **Admin Role**: Contract deployment and emergency functions
 - **Moderator Role**: Dispute resolution and content moderation
 - **User Role**: Standard user functions
+
+### Known Risks
+
+1. **Sybil Attacks**: Mitigated through reputation weighting and minimum thresholds
+2. **Collusion**: Monitoring and dispute mechanisms help detect coordinated attacks
+3. **Rating Manipulation**: Cooldowns and limits reduce manipulation potential
+4. **Front-running**: Consider commit-reveal schemes for sensitive operations
