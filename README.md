@@ -184,3 +184,5 @@ Located in `test/` directory:
 - `UserProfile.t.sol`: Profile management tests
 - `DisputeResolution.t.sol`: Dispute mechanism tests
 - `Integration.t.sol`: Cross-contract integration tests
+
+### Test Categories
