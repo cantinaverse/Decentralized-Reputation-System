@@ -200,3 +200,7 @@ forge test --match-test testSecurity
 
 # Gas optimization tests
 forge test --gas-report --match-test testGas
+
+# Integration tests
+forge test --match-path test/Integration.t.sol
+```
