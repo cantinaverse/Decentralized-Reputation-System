@@ -191,3 +191,9 @@ Located in `test/` directory:
 3. **Gas Optimization Tests**: Ensure efficient gas usage
 4. **Edge Case Tests**: Handle boundary conditions and errors
 5. **Integration Tests**: Test contract interactions
+
+### Running Specific Test Categories
+
+```bash
+# Security tests
+forge test --match-test testSecurity
