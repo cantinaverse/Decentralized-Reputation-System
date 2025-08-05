@@ -207,7 +207,15 @@ forge test --match-path test/Integration.t.sol
 
 ## Security Considerations
 ### Anti-Gaming Mechanisms
+
 1. **Cooldown Periods**: Prevent spam ratings
 2. **Rating Limits**: Limit number of ratings per user per time period
 3. **Weighted Scoring**: Higher reputation users have more influence
 4. **Sybil Resistance**: Minimum reputation threshold for meaningful ratings
+
+
+### Access Control
+
+- **Admin Role**: Contract deployment and emergency functions
+- **Moderator Role**: Dispute resolution and content moderation
+- **User Role**: Standard user functions
