@@ -186,3 +186,8 @@ Located in `test/` directory:
 - `Integration.t.sol`: Cross-contract integration tests
 
 ### Test Categories
+1. **Functionality Tests**: Verify core features work as expected
+2. **Security Tests**: Test access controls and attack vectors
+3. **Gas Optimization Tests**: Ensure efficient gas usage
+4. **Edge Case Tests**: Handle boundary conditions and errors
+5. **Integration Tests**: Test contract interactions
