@@ -184,3 +184,45 @@ Located in `test/` directory:
 - `UserProfile.t.sol`: Profile management tests
 - `DisputeResolution.t.sol`: Dispute mechanism tests
 - `Integration.t.sol`: Cross-contract integration tests
+
+### Test Categories
+1. **Functionality Tests**: Verify core features work as expected
+2. **Security Tests**: Test access controls and attack vectors
+3. **Gas Optimization Tests**: Ensure efficient gas usage
+4. **Edge Case Tests**: Handle boundary conditions and errors
+5. **Integration Tests**: Test contract interactions
+
+### Running Specific Test Categories
+
+```bash
+# Security tests
+forge test --match-test testSecurity
+
+# Gas optimization tests
+forge test --gas-report --match-test testGas
+
+# Integration tests
+forge test --match-path test/Integration.t.sol
+```
+
+## Security Considerations
+### Anti-Gaming Mechanisms
+
+1. **Cooldown Periods**: Prevent spam ratings
+2. **Rating Limits**: Limit number of ratings per user per time period
+3. **Weighted Scoring**: Higher reputation users have more influence
+4. **Sybil Resistance**: Minimum reputation threshold for meaningful ratings
+
+
+### Access Control
+
+- **Admin Role**: Contract deployment and emergency functions
+- **Moderator Role**: Dispute resolution and content moderation
+- **User Role**: Standard user functions
+
+### Known Risks
+
+1. **Sybil Attacks**: Mitigated through reputation weighting and minimum thresholds
+2. **Collusion**: Monitoring and dispute mechanisms help detect coordinated attacks
+3. **Rating Manipulation**: Cooldowns and limits reduce manipulation potential
+4. **Front-running**: Consider commit-reveal schemes for sensitive operations
