@@ -206,3 +206,4 @@ forge test --match-path test/Integration.t.sol
 ```
 
 ## Security Considerations
+### Anti-Gaming Mechanisms
