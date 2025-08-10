@@ -235,3 +235,5 @@ forge test --match-path test/Integration.t.sol
 2. **Batch Operations**: Process multiple ratings in single transaction
 3. **Event Indexing**: Use indexed parameters efficiently
 4. **Storage vs Memory**: Optimize variable declarations
+
+### Gas Usage Estimates
