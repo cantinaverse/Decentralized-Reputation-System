@@ -226,3 +226,30 @@ forge test --match-path test/Integration.t.sol
 2. **Collusion**: Monitoring and dispute mechanisms help detect coordinated attacks
 3. **Rating Manipulation**: Cooldowns and limits reduce manipulation potential
 4. **Front-running**: Consider commit-reveal schemes for sensitive operations
+
+## Gas Optimization
+
+### Strategies Implemented
+
+1. **Packed Structs**: Optimize storage layout
+2. **Batch Operations**: Process multiple ratings in single transaction
+3. **Event Indexing**: Use indexed parameters efficiently
+4. **Storage vs Memory**: Optimize variable declarations
+
+### Gas Usage Estimates
+
+| Function | Estimated Gas |
+|----------|---------------|
+| Register User | ~50,000 |
+| Submit Rating | ~80,000 |
+| Update Reputation | ~45,000 |
+| Submit Dispute | ~120,000 |
+
+## Frontend Integration
+
+### Recommended Stack
+
+- **Framework**: Next.js with TypeScript
+- **Web3 Library**: Wagmi + Viem
+- **Wallet Connection**: RainbowKit or ConnectKit
+- **State Management**: Zustand or React Context
