@@ -237,3 +237,10 @@ forge test --match-path test/Integration.t.sol
 4. **Storage vs Memory**: Optimize variable declarations
 
 ### Gas Usage Estimates
+
+| Function | Estimated Gas |
+|----------|---------------|
+| Register User | ~50,000 |
+| Submit Rating | ~80,000 |
+| Update Reputation | ~45,000 |
+| Submit Dispute | ~120,000 |
