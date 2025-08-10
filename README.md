@@ -226,3 +226,7 @@ forge test --match-path test/Integration.t.sol
 2. **Collusion**: Monitoring and dispute mechanisms help detect coordinated attacks
 3. **Rating Manipulation**: Cooldowns and limits reduce manipulation potential
 4. **Front-running**: Consider commit-reveal schemes for sensitive operations
+
+## Gas Optimization
+
+### Strategies Implemented
