@@ -230,3 +230,8 @@ forge test --match-path test/Integration.t.sol
 ## Gas Optimization
 
 ### Strategies Implemented
+
+1. **Packed Structs**: Optimize storage layout
+2. **Batch Operations**: Process multiple ratings in single transaction
+3. **Event Indexing**: Use indexed parameters efficiently
+4. **Storage vs Memory**: Optimize variable declarations
