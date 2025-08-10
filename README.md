@@ -248,3 +248,8 @@ forge test --match-path test/Integration.t.sol
 ## Frontend Integration
 
 ### Recommended Stack
+
+- **Framework**: Next.js with TypeScript
+- **Web3 Library**: Wagmi + Viem
+- **Wallet Connection**: RainbowKit or ConnectKit
+- **State Management**: Zustand or React Context
