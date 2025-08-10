@@ -244,3 +244,7 @@ forge test --match-path test/Integration.t.sol
 | Submit Rating | ~80,000 |
 | Update Reputation | ~45,000 |
 | Submit Dispute | ~120,000 |
+
+## Frontend Integration
+
+### Recommended Stack
