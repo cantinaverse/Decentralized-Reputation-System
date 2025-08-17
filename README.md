@@ -319,3 +319,10 @@ Common error codes across contracts:
 4. Implement the feature
 5. Run full test suite
 6. Submit pull request
+
+### Code Style
+
+- Follow Solidity style guide
+- Use NatSpec documentation
+- Include comprehensive tests
+- Optimize for gas efficiency
