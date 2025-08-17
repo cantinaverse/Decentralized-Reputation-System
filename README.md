@@ -326,3 +326,12 @@ Common error codes across contracts:
 - Use NatSpec documentation
 - Include comprehensive tests
 - Optimize for gas efficiency
+
+### Commit Convention
+
+Use conventional commits:
+- `feat:` New features
+- `fix:` Bug fixes
+- `docs:` Documentation changes
+- `test:` Test additions/modifications
+- `refactor:` Code refactoring
