@@ -293,3 +293,9 @@ const { write: submitRating } = useContractWrite({
 ### Mainnet Deployments
 
 *Coming soon...*
+
+## API Reference
+
+### Events
+
+All contracts emit events for off-chain tracking and frontend updates. See individual contract documentation for complete event specifications.
