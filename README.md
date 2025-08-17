@@ -283,3 +283,9 @@ const { write: submitRating } = useContractWrite({
 - RatingSystem: `0x...`
 - UserProfile: `0x...`
 - DisputeResolution: `0x...`
+
+#### Goerli
+- ReputationRegistry: `0x...`
+- RatingSystem: `0x...`
+- UserProfile: `0x...`
+- DisputeResolution: `0x...`
