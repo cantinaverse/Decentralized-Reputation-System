@@ -278,3 +278,8 @@ const { write: submitRating } = useContractWrite({
 ## Deployment Addresses
 
 ### Testnet Deployments
+#### Sepolia
+- ReputationRegistry: `0x...`
+- RatingSystem: `0x...`
+- UserProfile: `0x...`
+- DisputeResolution: `0x...`
