@@ -366,3 +366,7 @@ For questions and support:
 - 🎯 Integration APIs
 - 🎯 Governance features
 - 🎯 Analytics dashboard
+
+---
+
+*Built with ❤️ using Foundry and Solidity*
