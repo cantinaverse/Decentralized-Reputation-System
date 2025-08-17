@@ -308,3 +308,14 @@ Common error codes across contracts:
 - `CooldownPeriodActive()`: Must wait before rating again
 - `UserNotRegistered()`: User must register before participating
 - `DisputeNotFound()`: Referenced dispute doesn't exist
+
+## Contributing
+
+### Development Workflow
+
+1. Fork the repository
+2. Create a feature branch
+3. Write tests for new functionality
+4. Implement the feature
+5. Run full test suite
+6. Submit pull request
