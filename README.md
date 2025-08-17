@@ -253,3 +253,5 @@ forge test --match-path test/Integration.t.sol
 - **Web3 Library**: Wagmi + Viem
 - **Wallet Connection**: RainbowKit or ConnectKit
 - **State Management**: Zustand or React Context
+
+### Contract Integration Example
