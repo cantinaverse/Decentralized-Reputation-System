@@ -299,3 +299,12 @@ const { write: submitRating } = useContractWrite({
 ### Events
 
 All contracts emit events for off-chain tracking and frontend updates. See individual contract documentation for complete event specifications.
+
+### Error Codes
+
+Common error codes across contracts:
+- `UnauthorizedAccess()`: Caller lacks required permissions
+- `InvalidRating()`: Rating value out of bounds
+- `CooldownPeriodActive()`: Must wait before rating again
+- `UserNotRegistered()`: User must register before participating
+- `DisputeNotFound()`: Referenced dispute doesn't exist
