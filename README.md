@@ -346,3 +346,11 @@ For questions and support:
 - Open an issue on GitHub
 - Join our Discord community
 - Check the documentation wiki
+
+## Roadmap
+
+### Phase 1 (Current)
+- ✅ Core reputation system
+- ✅ Basic rating functionality
+- ✅ User profiles
+- 🔄 Dispute resolution
