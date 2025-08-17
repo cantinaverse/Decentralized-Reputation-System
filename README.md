@@ -255,3 +255,22 @@ forge test --match-path test/Integration.t.sol
 - **State Management**: Zustand or React Context
 
 ### Contract Integration Example
+```javascript
+import { useContractWrite, useContractRead } from 'wagmi'
+import { ReputationRegistryABI } from './abis/ReputationRegistry'
+
+// Read reputation score
+const { data: reputationScore } = useContractRead({
+  address: REPUTATION_REGISTRY_ADDRESS,
+  abi: ReputationRegistryABI,
+  functionName: 'getReputationScore',
+  args: [userAddress],
+})
+
+// Submit rating
+const { write: submitRating } = useContractWrite({
+  address: RATING_SYSTEM_ADDRESS,
+  abi: RatingSystemABI,
+  functionName: 'submitRating',
+})
+```
