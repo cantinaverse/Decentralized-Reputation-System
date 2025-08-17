@@ -299,3 +299,74 @@ const { write: submitRating } = useContractWrite({
 ### Events
 
 All contracts emit events for off-chain tracking and frontend updates. See individual contract documentation for complete event specifications.
+
+### Error Codes
+
+Common error codes across contracts:
+- `UnauthorizedAccess()`: Caller lacks required permissions
+- `InvalidRating()`: Rating value out of bounds
+- `CooldownPeriodActive()`: Must wait before rating again
+- `UserNotRegistered()`: User must register before participating
+- `DisputeNotFound()`: Referenced dispute doesn't exist
+
+## Contributing
+
+### Development Workflow
+
+1. Fork the repository
+2. Create a feature branch
+3. Write tests for new functionality
+4. Implement the feature
+5. Run full test suite
+6. Submit pull request
+
+### Code Style
+
+- Follow Solidity style guide
+- Use NatSpec documentation
+- Include comprehensive tests
+- Optimize for gas efficiency
+
+### Commit Convention
+
+Use conventional commits:
+- `feat:` New features
+- `fix:` Bug fixes
+- `docs:` Documentation changes
+- `test:` Test additions/modifications
+- `refactor:` Code refactoring
+
+## License
+
+MIT License - see LICENSE file for details.
+
+## Support
+
+For questions and support:
+- Open an issue on GitHub
+- Join our Discord community
+- Check the documentation wiki
+
+## Roadmap
+
+### Phase 1 (Current)
+- ✅ Core reputation system
+- ✅ Basic rating functionality
+- ✅ User profiles
+- 🔄 Dispute resolution
+
+### Phase 2
+- 🎯 Advanced anti-gaming mechanisms
+- 🎯 Reputation token integration
+- 🎯 Frontend application
+- 🎯 Mobile app support
+
+### Phase 3
+- 🎯 Cross-chain reputation
+- 🎯 Integration APIs
+- 🎯 Governance features
+- 🎯 Analytics dashboard
+
+---
+
+*Built with ❤️ using Foundry and Solidity*
