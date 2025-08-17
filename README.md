@@ -253,3 +253,49 @@ forge test --match-path test/Integration.t.sol
 - **Web3 Library**: Wagmi + Viem
 - **Wallet Connection**: RainbowKit or ConnectKit
 - **State Management**: Zustand or React Context
+
+### Contract Integration Example
+```javascript
+import { useContractWrite, useContractRead } from 'wagmi'
+import { ReputationRegistryABI } from './abis/ReputationRegistry'
+
+// Read reputation score
+const { data: reputationScore } = useContractRead({
+  address: REPUTATION_REGISTRY_ADDRESS,
+  abi: ReputationRegistryABI,
+  functionName: 'getReputationScore',
+  args: [userAddress],
+})
+
+// Submit rating
+const { write: submitRating } = useContractWrite({
+  address: RATING_SYSTEM_ADDRESS,
+  abi: RatingSystemABI,
+  functionName: 'submitRating',
+})
+```
+
+## Deployment Addresses
+
+### Testnet Deployments
+#### Sepolia
+- ReputationRegistry: `0x...`
+- RatingSystem: `0x...`
+- UserProfile: `0x...`
+- DisputeResolution: `0x...`
+
+#### Goerli
+- ReputationRegistry: `0x...`
+- RatingSystem: `0x...`
+- UserProfile: `0x...`
+- DisputeResolution: `0x...`
+
+### Mainnet Deployments
+
+*Coming soon...*
+
+## API Reference
+
+### Events
+
+All contracts emit events for off-chain tracking and frontend updates. See individual contract documentation for complete event specifications.
