@@ -335,3 +335,7 @@ Use conventional commits:
 - `docs:` Documentation changes
 - `test:` Test additions/modifications
 - `refactor:` Code refactoring
+
+## License
+
+MIT License - see LICENSE file for details.
