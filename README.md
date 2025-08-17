@@ -339,3 +339,10 @@ Use conventional commits:
 ## License
 
 MIT License - see LICENSE file for details.
+
+## Support
+
+For questions and support:
+- Open an issue on GitHub
+- Join our Discord community
+- Check the documentation wiki
