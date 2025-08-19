@@ -59,4 +59,110 @@ contract ReputationRegistry is Ownable, ReentrancyGuard {
     error SelfRatingNotAllowed();
 
     constructor(address _owner) Ownable(_owner) {}
+
+    /**
+     * @dev Register a new user in the reputation system
+     * @param user Address of the user to register
+     */
+    function registerUser(address user) external onlyOwner {
+        if (_reputations[user].isRegistered) {
+            revert UserAlreadyRegistered(user);
+        }
+        
+        _reputations[user] = ReputationData({
+            score: INITIAL_REPUTATION,
+            totalRatings: 0,
+            totalScore: 0,
+            lastUpdateTime: block.timestamp,
+            lastDecayTime: block.timestamp,
+            isRegistered: true
+        });
+        
+        _registeredUsers.push(user);
+        
+        emit UserRegistered(user, INITIAL_REPUTATION);
+    }
+
+    /**
+     * @dev Update a user's reputation based on a new rating
+     * @param user Address of the user being rated
+     * @param rating New rating score (0-1000)
+     * @param rater Address of the user giving the rating
+     */
+    function updateReputation(
+        address user,
+        uint256 rating,
+        address rater
+    ) external nonReentrant {
+        if (!authorizedRaters[msg.sender]) {
+            revert UnauthorizedRater(msg.sender);
+        }
+        
+        if (!_reputations[user].isRegistered) {
+            revert UserNotRegistered(user);
+        }
+        
+        if (!_reputations[rater].isRegistered) {
+            revert UserNotRegistered(rater);
+        }
+        
+        if (user == rater) {
+            revert SelfRatingNotAllowed();
+        }
+        
+        if (rating > MAX_REPUTATION) {
+            revert InvalidReputationScore(rating);
+        }
+        
+        // Apply decay before updating
+        _applyDecay(user);
+        
+        ReputationData storage userData = _reputations[user];
+        uint256 oldScore = userData.score;
+        
+        // Calculate weighted rating based on rater's reputation
+        uint256 weightedRating = _calculateWeightedRating(rating, rater);
+        
+        // Update reputation using weighted average
+        userData.totalRatings += 1;
+        userData.totalScore += weightedRating;
+        userData.score = userData.totalScore / userData.totalRatings;
+        userData.lastUpdateTime = block.timestamp;
+        
+        // Ensure score stays within bounds
+        if (userData.score > MAX_REPUTATION) {
+            userData.score = MAX_REPUTATION;
+        }
+        
+        emit ReputationUpdated(user, oldScore, userData.score, rater);
+    }
+
+    /**
+     * @dev Get a user's current reputation score
+     * @param user Address of the user
+     * @return Current reputation score
+     */
+    function getReputation(address user) external view returns (uint256) {
+        if (!_reputations[user].isRegistered) {
+            revert UserNotRegistered(user);
+        }
+        
+        // Calculate decay without applying it (view function)
+        return _calculateDecayedReputation(user);
+    }
+
+    /**
+     * @dev Get detailed reputation data for a user
+     * @param user Address of the user
+     * @return ReputationData struct with all reputation information
+     */
+    function getReputationData(address user) external view returns (ReputationData memory) {
+        if (!_reputations[user].isRegistered) {
+            revert UserNotRegistered(user);
+        }
+        
+        ReputationData memory data = _reputations[user];
+        data.score = _calculateDecayedReputation(user);
+        return data;
+    }
 }
