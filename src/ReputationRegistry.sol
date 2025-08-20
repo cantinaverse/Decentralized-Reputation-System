@@ -200,4 +200,9 @@ contract ReputationRegistry is Ownable, ReentrancyGuard {
     function getTotalUsers() external view returns (uint256) {
         return _registeredUsers.length;
     }
+
+    function addAuthorizedRater(address rater) external onlyOwner {
+        authorizedRaters[rater] = true;
+        emit AuthorizedRaterAdded(rater);
+    }
 }
