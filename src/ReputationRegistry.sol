@@ -165,4 +165,84 @@ contract ReputationRegistry is Ownable, ReentrancyGuard {
         data.score = _calculateDecayedReputation(user);
         return data;
     }
+
+    /**
+     * @dev Get all registered users (paginated for large datasets)
+     * @param offset Starting index
+     * @param limit Maximum number of users to return
+     * @return users Array of user addresses
+     */
+    function getRegisteredUsers(
+        uint256 offset,
+        uint256 limit
+    ) external view returns (address[] memory users) {
+        uint256 total = _registeredUsers.length;
+        
+        if (offset >= total) {
+            return new address[](0);
+        }
+        
+        uint256 end = offset + limit;
+        if (end > total) {
+            end = total;
+        }
+        
+        users = new address[](end - offset);
+        for (uint256 i = offset; i < end; i++) {
+            users[i - offset] = _registeredUsers[i];
+        }
+    }
+
+    /**
+     * @dev Get total number of registered users
+     * @return Total user count
+     */
+    function getTotalUsers() external view returns (uint256) {
+        return _registeredUsers.length;
+    }
+
+    /**
+     * @dev Add an authorized rater (typically the RatingSystem contract)
+     * @param rater Address to authorize
+     */
+    function addAuthorizedRater(address rater) external onlyOwner {
+        authorizedRaters[rater] = true;
+        emit AuthorizedRaterAdded(rater);
+    }
+
+    /**
+     * @dev Remove an authorized rater
+     * @param rater Address to remove authorization from
+     */
+    function removeAuthorizedRater(address rater) external onlyOwner {
+        authorizedRaters[rater] = false;
+        emit AuthorizedRaterRemoved(rater);
+    }
+
+    /**
+     * @dev Update reputation calculation parameters
+     * @param _minRaterReputation Minimum reputation for weighted ratings
+     * @param _maxWeightMultiplier Maximum weight multiplier
+     */
+    function updateReputationParameters(
+        uint256 _minRaterReputation,
+        uint256 _maxWeightMultiplier
+    ) external onlyOwner {
+        if (_minRaterReputation > MAX_REPUTATION || _maxWeightMultiplier < 100) {
+            revert InvalidParameters();
+        }
+        
+        minRaterReputation = _minRaterReputation;
+        maxWeightMultiplier = _maxWeightMultiplier;
+        
+        emit ReputationParametersUpdated(_minRaterReputation, _maxWeightMultiplier);
+    }
+
+    /**
+     * @dev Toggle reputation decay on/off
+     * @param enabled Whether decay should be enabled
+     */
+    function setDecayEnabled(bool enabled) external onlyOwner {
+        decayEnabled = enabled;
+    }
 }
