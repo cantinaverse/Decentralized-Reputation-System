@@ -246,6 +246,10 @@ contract ReputationRegistry is Ownable, ReentrancyGuard {
         decayEnabled = enabled;
     }
 
+    /**
+     * @dev Manually apply decay to a user's reputation
+     * @param user Address of the user
+     */
     function applyDecay(address user) external {
         if (!_reputations[user].isRegistered) {
             revert UserNotRegistered(user);
