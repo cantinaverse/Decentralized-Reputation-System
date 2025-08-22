@@ -338,4 +338,24 @@ contract ReputationRegistry is Ownable, ReentrancyGuard {
             emit ReputationDecayed(user, oldScore, newScore);
         }
     }
+
+    function _calculateWeightedRating(
+        uint256 rating,
+        address rater
+    ) internal view returns (uint256) {
+        uint256 raterReputation = _calculateDecayedReputation(rater);
+        
+        // If rater doesn't meet minimum reputation, use base weight
+        if (raterReputation < minRaterReputation) {
+            return rating;
+        }
+        
+        // Calculate weight multiplier based on rater's reputation
+        // Higher reputation = higher weight (up to maxWeightMultiplier)
+        uint256 reputationRatio = (raterReputation * 100) / MAX_REPUTATION;
+        uint256 weightMultiplier = 100 + ((reputationRatio * (maxWeightMultiplier - 100)) / 100);
+        
+        return (rating * weightMultiplier) / 100;
+    }
+
 }
