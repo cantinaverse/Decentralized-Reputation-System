@@ -339,6 +339,12 @@ contract ReputationRegistry is Ownable, ReentrancyGuard {
         }
     }
 
+    /**
+     * @dev Calculate weighted rating based on rater's reputation
+     * @param rating The raw rating (0-1000)
+     * @param rater Address of the rater
+     * @return Weighted rating value
+     */
     function _calculateWeightedRating(
         uint256 rating,
         address rater
