@@ -338,4 +338,65 @@ contract ReputationRegistry is Ownable, ReentrancyGuard {
             emit ReputationDecayed(user, oldScore, newScore);
         }
     }
+
+    /**
+     * @dev Calculate weighted rating based on rater's reputation
+     * @param rating The raw rating (0-1000)
+     * @param rater Address of the rater
+     * @return Weighted rating value
+     */
+    function _calculateWeightedRating(
+        uint256 rating,
+        address rater
+    ) internal view returns (uint256) {
+        uint256 raterReputation = _calculateDecayedReputation(rater);
+        
+        // If rater doesn't meet minimum reputation, use base weight
+        if (raterReputation < minRaterReputation) {
+            return rating;
+        }
+        
+        // Calculate weight multiplier based on rater's reputation
+        // Higher reputation = higher weight (up to maxWeightMultiplier)
+        uint256 reputationRatio = (raterReputation * 100) / MAX_REPUTATION;
+        uint256 weightMultiplier = 100 + ((reputationRatio * (maxWeightMultiplier - 100)) / 100);
+        
+        return (rating * weightMultiplier) / 100;
+    }
+
+    /**
+     * @dev Calculate reputation with decay applied (view function)
+     * @param user Address of the user
+     * @return Decayed reputation score
+     */
+    function _calculateDecayedReputation(address user) internal view returns (uint256) {
+        if (!decayEnabled) {
+            return _reputations[user].score;
+        }
+        
+        ReputationData memory userData = _reputations[user];
+        uint256 timeSinceLastDecay = block.timestamp - userData.lastDecayTime;
+        
+        if (timeSinceLastDecay < DECAY_PERIOD) {
+            return userData.score;
+        }
+        
+        uint256 decayPeriods = timeSinceLastDecay / DECAY_PERIOD;
+        uint256 currentScore = userData.score;
+        
+        // Apply decay for each period (compound decay)
+        for (uint256 i = 0; i < decayPeriods && currentScore > MIN_REPUTATION; i++) {
+            uint256 decayAmount = (currentScore * REPUTATION_DECAY_RATE) / 1000;
+            if (decayAmount == 0) decayAmount = 1; // Minimum decay of 1 point
+            
+            if (currentScore > decayAmount) {
+                currentScore -= decayAmount;
+            } else {
+                currentScore = MIN_REPUTATION;
+                break;
+            }
+        }
+        
+        return currentScore;
+    }
 }
