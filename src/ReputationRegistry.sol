@@ -400,6 +400,11 @@ contract ReputationRegistry is Ownable, ReentrancyGuard {
         return currentScore;
     }
 
+    /**
+     * @dev Apply decay to a user's reputation (state-changing)
+     * @param user Address of the user
+     */
+
     function _applyDecay(address user) internal {
         if (!decayEnabled) {
             return;
