@@ -445,4 +445,9 @@ contract ReputationRegistry is Ownable, ReentrancyGuard {
         
         return (rating * weightMultiplier) / 100;
     }
+
+    function _calculateDecayedReputation(address user) internal view returns (uint256) {
+        if (!decayEnabled) {
+            return _reputations[user].score;
+        }
 }
