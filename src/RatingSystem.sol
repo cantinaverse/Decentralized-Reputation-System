@@ -76,5 +76,6 @@ contract RatingSystem is Ownable, ReentrancyGuard, Pausable {
     }
 
     // State variables
+    IReputationRegistry public immutable reputationRegistry;
 
 }
