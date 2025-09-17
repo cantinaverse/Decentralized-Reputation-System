@@ -89,4 +89,7 @@ contract RatingSystem is Ownable, ReentrancyGuard, Pausable {
 
     // Configuration
     RatingLimits public ratingLimits;
+
+    // Counters
+    uint256 private _ratingIdCounter;
 }
