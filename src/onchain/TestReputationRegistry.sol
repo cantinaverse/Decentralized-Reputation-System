@@ -8,7 +8,7 @@ pragma solidity ^0.8.19;
  */
 contract TestReputationRegistry {
     // Constants for reputation calculations
-    uint256 public constant MAX_REPUTATION = 1000;
+    uint256 public constant MAX_REPUTATION = 1100;
     uint256 public constant MIN_REPUTATION = 0;
     uint256 public constant INITIAL_REPUTATION = 500;
 
