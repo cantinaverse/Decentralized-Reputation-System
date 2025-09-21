@@ -11,7 +11,7 @@ import "../src/onchain/TestReputationRegistry.sol";
 contract DeployTestReputationRegistry is Script {
     function run() external returns (TestReputationRegistry) {
         uint256 deployerPrivateKey = vm.envUint("PRIVATE_KEY");
-        
+
         vm.startBroadcast(deployerPrivateKey);
 
         // Deploy the contract
@@ -21,7 +21,9 @@ contract DeployTestReputationRegistry is Script {
 
         // Optional: Register the deployer automatically
         testReputation.registerSelf();
-        console.log("Deployer registered with initial reputation:", testReputation.getReputation(vm.addr(deployerPrivateKey)));
+        console.log(
+            "Deployer registered with initial reputation:", testReputation.getReputation(vm.addr(deployerPrivateKey))
+        );
 
         vm.stopBroadcast();
 
@@ -37,7 +39,7 @@ contract DeployAndSetupTestReputationRegistry is Script {
     function run() external returns (TestReputationRegistry) {
         uint256 deployerPrivateKey = vm.envUint("PRIVATE_KEY");
         address deployer = vm.addr(deployerPrivateKey);
-        
+
         vm.startBroadcast(deployerPrivateKey);
 
         // Deploy the contract
@@ -62,7 +64,7 @@ contract DeployAndSetupTestReputationRegistry is Script {
         // Give some ratings to mock users
         testReputation.givePositiveRating(mockUsers[0]); // Should increase reputation
         testReputation.giveNegativeRating(mockUsers[1]); // Should decrease reputation
-        testReputation.giveNeutralRating(mockUsers[2]);  // Should stay neutral
+        testReputation.giveNeutralRating(mockUsers[2]); // Should stay neutral
 
         // Log final reputations
         console.log("Mock user 1 reputation:", testReputation.getReputation(mockUsers[0]));
