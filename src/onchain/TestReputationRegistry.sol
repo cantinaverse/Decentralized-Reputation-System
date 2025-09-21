@@ -39,11 +39,7 @@ contract TestReputationRegistry {
             _registeredUsers.push(user);
         }
 
-        _reputations[user] = ReputationData({
-            score: INITIAL_REPUTATION,
-            totalRatings: 0,
-            isRegistered: true
-        });
+        _reputations[user] = ReputationData({score: INITIAL_REPUTATION, totalRatings: 0, isRegistered: true});
 
         emit UserRegistered(user, INITIAL_REPUTATION);
     }
@@ -149,11 +145,7 @@ contract TestReputationRegistry {
      */
     function getReputationData(address user) external view returns (ReputationData memory) {
         if (!_reputations[user].isRegistered) {
-            return ReputationData({
-                score: INITIAL_REPUTATION,
-                totalRatings: 0,
-                isRegistered: false
-            });
+            return ReputationData({score: INITIAL_REPUTATION, totalRatings: 0, isRegistered: false});
         }
         return _reputations[user];
     }
@@ -201,9 +193,7 @@ contract TestReputationRegistry {
     function getBatchReputations(address[] calldata users) external view returns (uint256[] memory scores) {
         scores = new uint256[](users.length);
         for (uint256 i = 0; i < users.length; i++) {
-            scores[i] = _reputations[users[i]].isRegistered ? 
-                       _reputations[users[i]].score : 
-                       INITIAL_REPUTATION;
+            scores[i] = _reputations[users[i]].isRegistered ? _reputations[users[i]].score : INITIAL_REPUTATION;
         }
     }
 
@@ -218,7 +208,7 @@ contract TestReputationRegistry {
             uint256 oldScore = _reputations[user].score;
             _reputations[user].score = INITIAL_REPUTATION;
             _reputations[user].totalRatings = 0;
-            
+
             emit ReputationUpdated(user, oldScore, INITIAL_REPUTATION, msg.sender);
         }
     }
