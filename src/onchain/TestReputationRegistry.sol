@@ -8,7 +8,7 @@ pragma solidity ^0.8.19;
  */
 contract TestReputationRegistry {
     // Constants for reputation calculations
-    uint256 public constant MAX_REPUTATION = 1100;
+    uint256 public constant MAX_REPUTATION = 1000;
     uint256 public constant MIN_REPUTATION = 0;
     uint256 public constant INITIAL_REPUTATION = 500;
 
@@ -27,7 +27,9 @@ contract TestReputationRegistry {
     event UserRegistered(address indexed user, uint256 initialReputation);
     event ReputationUpdated(address indexed user, uint256 oldScore, uint256 newScore, address indexed rater);
 
-    constructor() {}
+    constructor() {
+        string memory info = "Test 3";
+    }
 
     /**
      * @dev Register a new user (anyone can call)
