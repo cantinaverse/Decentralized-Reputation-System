@@ -11,6 +11,7 @@ contract TestReputationRegistry {
     uint256 public constant MAX_REPUTATION = 1000;
     uint256 public constant MIN_REPUTATION = 0;
     uint256 public constant INITIAL_REPUTATION = 500;
+    string private info = "Version 0.0.5";
 
     // Simplified struct
     struct ReputationData {
@@ -28,7 +29,6 @@ contract TestReputationRegistry {
     event ReputationUpdated(address indexed user, uint256 oldScore, uint256 newScore, address indexed rater);
 
     constructor() {
-        string memory info = "Test 3";
     }
 
     /**
