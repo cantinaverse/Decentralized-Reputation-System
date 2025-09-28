@@ -115,7 +115,7 @@ function DomainVerification() {
                 hostname: window.location.hostname,
                 origin: window.location.origin,
                 projectId,
-                configuredDomain: "https://educational-sandbox.vercel.app"
+                configuredDomain: "https://decentralized-reputation-system-teal.vercel.app"
             });
         }
     }, []);
