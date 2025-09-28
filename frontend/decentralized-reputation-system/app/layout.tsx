@@ -1,5 +1,4 @@
 // app/layout.tsx (or wherever your root layout is)
-
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
@@ -10,8 +9,8 @@ import ContextProvider from './context';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Decentralized Reputation System',
-  description: 'A ochain decentralized reputation system',
+    title: "Decentralized Reputation System",
+    description: "A ochain decentralized reputation system.",
 };
 
 export default async function RootLayout({
